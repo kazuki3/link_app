@@ -1,2 +1,1 @@
-#Laravel Gitテスト
-#Laravelを使ったGit管理テスト中。
+LaravelおよびGit管理練習用リポジトリ

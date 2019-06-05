@@ -14,26 +14,5 @@ Route::get('/submit', function () {
 });
 
 use Illuminate\Http\Request;
-
-// ①POSTで/submitにアクセスする
-Route::post('submit', function (Request $request) {
-    // ②validateメソッドを使ってバリデーションを使う
-    $data = $request->validate([
-        'title' => 'required | max:255',
-        'url' => 'required | url | max:255',
-        'description' => 'required | max:255',
-    ]);
-
-    // ③Linkモデルを生成
-    $link = new App\Link($data);
-    $link -> save();
-
-    // リダイレクトする
-    return redirect('/');
-});
-
-// ①POSTで/submitにアクセスする。
-// ②validateメソッドを使ってバリデーションを行う
-// エラーが発生した場合、、セッションにエラーメッセージをフラッシュデータとして保存します。
-// ③バリデーションの検証が通ったらLinkモデルを生成してフォームに投稿されたデータをDBに保存する。
-// ④その後に/(root)にリダイレクトさせる。
+Route::post('/submit','LinkController@submit');
+// ①postで/submitにアクセスした際に、LinkControllerのsubmitアクションを呼び出す。

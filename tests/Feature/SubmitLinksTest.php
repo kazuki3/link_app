@@ -126,41 +126,4 @@ class SubmitLinksTest extends TestCase
         $this->assertDatabaseHas('links', $data);
     }
 
-    // // // 有効でないリンクはバリデーションで失敗する
-    // function tests_links_is_not_created_with_an_invalid_url()
-    // {
-
-    //     $this->withoutExceptionHandling();
-
-    //     $cases = ['//invalid-url.com', '/invalid-url', 'foo.com'];
-    
-    //     foreach ($cases as $case) {
-    //         try {
-    //             $response = $this->post('/submit', [
-    //                 'title' => 'Example Title',
-    //                 'url' => $case,
-    //                 'description' => 'Example description',
-    //             ]);
-    //         } catch (ValidationException $e) {
-    //             $this->assertEquals(
-    //                 'The url format is invalid.',
-    //                 $e->validator->errors()->first('url')
-    //             );
-    //             continue;
-    //         }
-
-    //         $this->fail("The URL $case passed validation when it should have failed.");
-    //     }
-
-    //     $this -> withoutExceptionHandling();  // 例外処理を行わない
-        
-    //     $response = $this -> post('/submit', [
-    //         'title' => 'Example Title',
-    //         'url' => 'test_url',
-    //         'description' => 'Examle Description',
-    //     ]);  // POSTでのデータ送信
-
-
-    // }
-
 }
